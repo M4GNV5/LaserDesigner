@@ -63,7 +63,6 @@ export default class LayoutDesigner extends Vue {
 
         resizingComponent.width = Math.floor(originalWidth * scale)
         resizingComponent.height = Math.floor(originalHeight * scale)
-        console.log(scale, 'new width x height', resizingComponent.width, resizingComponent.height)
         root.render(canvas, ctx)
       }
     }
