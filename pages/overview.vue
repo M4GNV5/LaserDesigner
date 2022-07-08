@@ -1,17 +1,18 @@
 <template>
     <b-container fluid>
+        <AppBar/>
         <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
             {{copyLink}} wurde in die Zwischenablage kopiert
         </b-alert>
 
         <b-row class="mb-2 text-center">
             <b-col cols="7">
-                <b-container color="green">
+                <b-container style="height: 100vh;">
                     <b-img style="cursor: pointer;" @click="imageLink=(i)" v-for="i in 4" :key="i" class="my-1 mx-1" width="200" :src="require(('~/assets/Dummy'+i+'.jpg'))">Hello</b-img>                    
                 </b-container>
             </b-col>
             <b-col cols="5">
-                <b-container>
+                <b-container style="background-color: lightgrey; height: 100vh;">
                     <b-row class="mb-2 mt-1 justify-content-center">
                         <b-img contain width="300" :src="require(('~/assets/Dummy'+imageLink+'.jpg'))"></b-img>
                     </b-row>
