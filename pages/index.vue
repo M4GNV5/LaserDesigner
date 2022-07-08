@@ -45,7 +45,7 @@
         <b-form-group id="input-group-4" label="Excel-File:" label-for="input-4">
           <b-form-file id="form-image" placeholder="Excel-File hochladen..."></b-form-file>
         </b-form-group>
-        <b-button type="submit" variant="primary">Start</b-button>
+        <b-button type="submit">Start</b-button>
       </b-form>
     </div>
   </div>
