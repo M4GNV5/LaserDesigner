@@ -7,24 +7,24 @@
         <b-row class="mb-2 text-center">
             <b-col cols="7">
                 <b-container color="green">
-                    <b-img style="cursor: pointer;" @click="imageLink=(i)" v-for="i in 4" :key="i" class="my-1 mx-1" width="200" :src="require(('~/assets/Dummy'+i+'.jpg'))">Hello</b-img>
-                    <a href="" download="Dummy1.jpg">Download here</a>
-                    
+                    <b-img style="cursor: pointer;" @click="imageLink=(i)" v-for="i in 4" :key="i" class="my-1 mx-1" width="200" :src="require(('~/assets/Dummy'+i+'.jpg'))">Hello</b-img>                    
                 </b-container>
             </b-col>
             <b-col cols="5">
                 <b-container>
                     <b-row class="mb-2 mt-1 justify-content-center">
-                        <b-img v-if="imageLink != ''" contain width="300" :src="require(('~/assets/Dummy'+imageLink+'.jpg'))"></b-img>
+                        <b-img contain width="300" :src="require(('~/assets/Dummy'+imageLink+'.jpg'))"></b-img>
                     </b-row>
                     <b-row class="mb-2 justify-content-center">
                         <b-button @click="copyToClipBoard('http://localhost:3000/overview'), showDismissibleAlert=true">Copy Link</b-button>
                     </b-row>
                     <b-row class="mb-2 justify-content-center">
-                        <b-button>Bearbeiten</b-button>
+                        <b-button v-if="imageLink != ''">Bearbeiten</b-button>
                     </b-row>
                     <b-row class="mb-2 justify-content-center">
-                        <b-button>Herunterladen</b-button>
+                        <b-button>
+                            <a style="color:white" :href="require('~/assets/Dummy'+imageLink+'.jpg')" download>Herunterladen</a>
+                        </b-button>
                     </b-row>
                     <b-row class="mb-2 justify-content-center">
                         <b-button>Alle herunterladen</b-button>
@@ -46,7 +46,7 @@
                 showAlert: false,
                 message: "This is a message",
                 copyLink: "",
-                imageLink: "",
+                imageLink: "1",
             }
         },
         methods: {
