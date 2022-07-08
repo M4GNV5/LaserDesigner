@@ -30,7 +30,7 @@ export class MainComponent extends LayoutComponent
 
   drawAnchor(ctx: CanvasRenderingContext2D, x: number, y: number) {
     ctx.beginPath()
-    ctx.arc(x, y, 4, 0, 2 * Math.PI)
+    ctx.arc(x, y, 5, 0, 2 * Math.PI)
     ctx.fill()
     ctx.closePath()
   }
@@ -70,6 +70,8 @@ export class ImageComponent extends LayoutComponent
     super()
 
     this.image = image
+    this.width = image.width
+    this.height = image.height
   }
   
   render(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {

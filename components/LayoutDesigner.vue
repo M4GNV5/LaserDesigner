@@ -1,15 +1,19 @@
 <template>
-  <canvas ref="draw-area" />
+  <div>
+    <img ref="dummy-logo" style="display: none;" :src="require('~/assets/bn-paf-icon.png')" />
+    <canvas ref="draw-area" />
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { LayoutComponent, MainComponent, TextComponent } from '../lib/layout-components'
+import { LayoutComponent, MainComponent, TextComponent, ImageComponent } from '../lib/layout-components'
 
 @Component
 export default class LayoutDesigner extends Vue {
   mounted() {
+    const logo: HTMLImageElement = this.$refs['dummy-logo'] as HTMLImageElement
     const canvas: HTMLCanvasElement = this.$refs['draw-area'] as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
 
@@ -17,9 +21,22 @@ export default class LayoutDesigner extends Vue {
       return
 
     const root = new MainComponent()
-    root.components.push(new TextComponent('Hallo Welt!'))
-    root.components.push(new TextComponent('AAAA'))
-    root.components.push(new TextComponent('BBBCCCDDDEEEFFFGGGHHHIIIJJJ'))
+
+    const imgComp = new ImageComponent(logo)
+    imgComp.x = 10
+    imgComp.y = 10
+    const text1 = new TextComponent('${excel:column:name}')
+    text1.x = 320
+    text1.y = 10
+    text1.width = 400
+    text1.height = 60
+    const text2 = new TextComponent('${excel:column:description}')
+    text2.x = 10
+    text2.y = 300
+    text2.width = 780
+    text2.height = 40
+
+    root.components.push(imgComp, text1, text2)
 
     let draggingComponent: LayoutComponent | null = null
     let resizingComponent: LayoutComponent | null = null
