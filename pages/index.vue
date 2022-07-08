@@ -1,10 +1,7 @@
 <template>
 
-
-
-
-
- <div class="main">
+ 
+ <div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   </button>
@@ -32,6 +29,7 @@
     </form>
   </div>
 </nav>
+<div class="main"> 
 <h4 class="top" > Projekt anlegen:</h4>
 
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
@@ -68,6 +66,7 @@
    </b-form-group>
      <b-button type="submit" variant="primary">Start</b-button>
     </b-form>
+</div>
   </div>
 
 
@@ -77,13 +76,12 @@
 
 .main {
  padding:50px;
-
+ width:70%;
 }
 
 .top {
 
  padding-top:10px;
-
 }
 
 </style>
