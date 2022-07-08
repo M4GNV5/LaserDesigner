@@ -26,7 +26,7 @@
                         <b-button @click="copyToClipBoard('http://localhost:3000/overview')">Copy Link</b-button>
                     </b-row>
                     <b-row class="mb-2 justify-content-center">
-                        <b-button v-if="imageLink != ''">Bearbeiten</b-button>
+                        <b-button to="edit" v-if="imageLink != ''">Bearbeiten</b-button>
                     </b-row>
                     <b-row class="mb-2 justify-content-center">
                         <b-button>
